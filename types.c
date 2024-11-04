@@ -3,16 +3,20 @@ typedef struct jacquie {
     int or;
     int attack;
     char* armes;
-    int endurance;
-} jacquie;
+    int rhum;
+} t_jacquie;
 
 typedef struct squelette {
     int pv;
     int attack;
-} squelette;
+} t_squelette;
 
 typedef struct ile {
     int or;
     struct squelette;
 } ile; 
+
+char* mvt;
+
+
 
