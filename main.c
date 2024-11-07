@@ -4,8 +4,6 @@
 #include <string.h>
 #include <unistd.h>
 #define BUF_SIZE 255
-#define SAVE_SIZE 255
-#define VOYAGE 0
 
 typedef struct jackie {
     int pv;
@@ -42,24 +40,25 @@ int victoire (struct jackie *p) {
     }
 }
 
-int déplacement (struct jackie *m, char * mvt) {
-    while (VOYAGE > 1) {
+int déplacement (struct jackie *m, int voyage, char * mvt) {
+    while (voyage > 1) {
     mvt ++;
     m->rhum --;
-    continue;
+    continue;   // ou return 1;
     }
 }
 
 int main () {
 
     printf("\n");
-    printf("                   |    |     |\n");
+    printf("                   |    |    |\n");
     printf("                  )_)  )☠️)  )_)\n");
     printf("                 )___))___))___)\n");
     printf("                )____)____)_____)\n");
     printf("              _____|____|____|____\n");
     printf("    ________________________________\n");
     printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf ("\n");
 
     char* mvt;
 
@@ -79,42 +78,49 @@ int main () {
     t_ile bourbon;
     bourbon.or = 80;
     struct ennemis *mad;
-
  
-    struct dirent *dir;
+    struct dirent *info;
     int count = 0;
     char buf[BUF_SIZE]; memset(buf, 0, BUF_SIZE);
+// opendir() renvoie un pointeur de type DIR. 
+    DIR *ile = opendir("home/user/langage_c/projets/surprise_islands/les_iles"); 
 
-    // opendir() renvoie un pointeur de type DIR. 
-    DIR *dd = opendir("user/langage_c/projets/surprise_islands/les_iles"); 
 
-    if (dd) {
-        printf("Il y a %d iles sur la carte\n", count);
-        printf("Où veux-tu aller?\n");
-        while ((dir = readdir(dd)) != NULL) {
-            if ( strcmp( dir->d_name, "." ) && strcmp( dir->d_name, ".." ) ) {
-                printf("%d) - %s\n", count + 1, dir->d_name); // count +1 pour éviter de faire apparaitre le "0" devant le premier choix
+    if (ile) {
+        while ((info = readdir (ile)) != NULL) {
+            if (strcmp (info->d_name, ".") && strcmp (info->d_name, "..")) {
+                printf("%d) - %s\n", count + 1, info->d_name); // count +1 pour éviter de faire apparaitre le "0" devant le premier choix
                 count++;
             }
         }
-        closedir(dd);
+        closedir (ile);
     }
+    printf("\nIl y a %d îles sur la carte\n", count);
+    printf("Où veux-tu aller ?\n");
+        
+    fgets (buf, sizeof(BUF_SIZE), stdin);
 
-    fclose (fopen("inventaire.save", "a"));
+    fclose (fopen ("inventaire.save", "a"));
+    FILE* fi = fopen ("inventaire.save", "r+"); 
 
-    FILE* fd = fopen("inventaire.save", "r+"); 
-
-    fprintf(fd, "PV : %d\nEndurance : %d\nPièces : %d\n", perso.pv, perso.or);
-    fprintf(fd, "Equipement : %s %d\n", perso.arme, perso.degats);
-    fprintf(fd, "La première île est occupée par %d pirates et il y a %d trésors\n", ratepi.nb, bourbon.or);
-    
-    fclose(fd);
+    fprintf (fi, "PV : %d\nRhum : %d\nPièces : %d\n", perso.pv, perso.rhum, perso.or);
+    fprintf (fi, "Equipement : %s %d\n", perso.arme, perso.degats);
+    fclose (fi);
 
 // Accès écriture et lecture SANS SUPPRESSION DE DONNEES
-    fclose (fopen("save", "a"));
-    FILE* fe = fopen("save","r+");
-    char save[SAVE_SIZE];memset(save,0,SAVE_SIZE);      //à modifier
-    printf("%s\n",save);                                    
+    fclose (fopen ("save", "a"));
+    FILE* fs = fopen ("save","r+");
+    char save[255];memset(save,0,255);  
+    printf ("%s\n",save);                      
+
+    if (fs == NULL) {
+        printf("Erreur lors de l'ouverture du fichier");
+        return -1;
+    }
+
+    fread (save, sizeof(save), 1, fs);
+    fclose (fs);
+    printf ("La partie a été sauvegardée\n");   
 
     return 0;
 }
