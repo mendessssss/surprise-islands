@@ -108,19 +108,21 @@ int main () {
     fclose (fi);
 
 // Accès écriture et lecture SANS SUPPRESSION DE DONNEES
+    char check[255]; 
+    memset(check,0,255);  
     fclose (fopen ("save", "a"));
     FILE* fs = fopen ("save","r+");
-    char save[255];memset(save,0,255);  
-    printf ("%s\n",save);                      
 
-    if (fs == NULL) {
-        printf("Erreur lors de l'ouverture du fichier");
-        return -1;
-    }
+    fgets (check, 255, fs);
+    char* token = strtok (check, ":");
+    token = strtok (NULL, ":");
+    token = & (token[1]);
+    printf ("%s", token);
+    
 
-    fread (save, sizeof(save), 1, fs);
     fclose (fs);
     printf ("La partie a été sauvegardée\n");   
+    printf ("%s\n",token);                      
 
     return 0;
 }
