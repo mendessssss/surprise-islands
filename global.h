@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <dirent.h>
+#include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <unistd.h>
-
-#include "struct.c"
-#include "write_save.c"
+#include "types.c"
 #include "fonctions.c"
+#define BUF_SIZE 255
