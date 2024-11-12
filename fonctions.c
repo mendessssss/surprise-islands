@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "types.c"
 #define BUF_SIZE 255
 
 // int game_over (struct jackie *f) {
