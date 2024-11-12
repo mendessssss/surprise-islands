@@ -1,0 +1,19 @@
+Un étrange vieil homme t'offre un objet magique. Que fais-tu ?
+1. Je prends l'objet, il pourrait me donner un pouvoir incroyable.
+2. Je refuse poliment, je ne fais pas confiance aux inconnus.
+3. Je demande d'abord ce qu’il en attend en retour.
+
+#
+1
+Je prends l'objet, il pourrait me donner un pouvoir incroyable.
+Pv +10 RHUM + 10 ATK +10
+
+#
+2
+Je refuse poliment, je ne fais pas confiance aux inconnus.
+Effet : aucun
+
+#
+3
+Je demande d'abord ce qu’il en attend en retour.
+Or - 100
