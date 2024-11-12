@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #define BUF_SIZE 255
 
-int main () {
+void load_ile (char * fname) {
 
     char line[BUF_SIZE]; memset(line, 0, BUF_SIZE);
     char buf[BUF_SIZE]; memset(buf, 0, BUF_SIZE);
     int choix;
 
-    FILE *file = file = fopen("ile4", "r");
+    FILE *file = file = fopen(fname, "r");
     // Connaitre la taille du fichier
     fseek(file ,0, SEEK_END);
     int sizeFile = ftell(file);
@@ -83,5 +83,4 @@ int main () {
         }
     }
 
-return 0;
 }
