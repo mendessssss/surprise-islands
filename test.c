@@ -11,7 +11,7 @@ int main () {
     char buf[BUF_SIZE]; memset(buf, 0, BUF_SIZE);
     int count = 0;
     // opendir() renvoie un pointeur de type DIR.
-    DIR *ile = opendir("/home/user/langage_c/projé/surprise_islands/les_iles"); 
+    DIR *ile = opendir("les_iles"); 
 
 
     if (ile == NULL) {

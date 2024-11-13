@@ -154,7 +154,7 @@ void scanfiles () {
     char buf[BUF_SIZE]; memset(buf, 0, BUF_SIZE);
 
     // opendir() renvoie un pointeur de type DIR. 
-    DIR *dd = opendir("/home/namoux/Documents/Exo C/Projet C/RPG Textuels/surprise-islands/iles"); 
+    DIR *dd = opendir("iles"); 
 
     if (dd == NULL) { 
     printf("Impossible d'ouvrir le répertoire.\n"); 
