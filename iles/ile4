@@ -1,16 +1,17 @@
+Ile4
 Vous trouvez une bouteille contenant un vieux parchemin à moitié déchiré. Que faites-vous ?
 1. Ouvrir la bouteille pour lire le parchemin.
 2. Ignorer la bouteille et continuer votre chemin.
 3. Garder la bouteille pour plus tard.
 #
 Effet : Vous ouvrez la bouteille et découvrez une carte au trésor ! Vous gagnez 50 pièces d'or.
-PO 50
+or +50
 #
 Effet : Vous ignorez la bouteille et continuez votre chemin.
 Effet : Aucun
 #
 Effet : Vous buvez le liquide dans la bouteille
-Effet : PV 10
+Effet : pv -10
 #
 $
 Tu entends des bruits étranges dans la jungle. Comment réagis-tu ?
@@ -19,7 +20,7 @@ Tu entends des bruits étranges dans la jungle. Comment réagis-tu ?
 3.Je retourne au navire, il vaut mieux ne pas risquer ma vie.
 #
 Je pars explorer, cela pourrait être une créature mythique.
-PA -10
+pv -10
 #
 Je me cache et attends de voir ce qui se passe.
 - Effet : Aucun

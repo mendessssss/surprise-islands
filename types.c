@@ -1,3 +1,6 @@
+#define BUF_SIZE 255
+
+
 typedef struct jacquie {
     int pv;
     int or;
@@ -27,7 +30,3 @@ typedef struct ile {
 } ile; 
 
 char* mvt;
-
-
-
-

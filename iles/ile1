@@ -1,19 +1,45 @@
+Ile1
 Un étrange vieil homme t'offre un objet magique. Que fais-tu ?
 1. Je prends l'objet, il pourrait me donner un pouvoir incroyable.
 2. Je refuse poliment, je ne fais pas confiance aux inconnus.
 3. Je demande d'abord ce qu’il en attend en retour.
-
 #
-1
 Je prends l'objet, il pourrait me donner un pouvoir incroyable.
-Pv +10 RHUM + 10 ATK +10
-
+pv +10 RHUM + 10 atk +10
 #
-2
 Je refuse poliment, je ne fais pas confiance aux inconnus.
 Effet : aucun
-
 #
-3
 Je demande d'abord ce qu’il en attend en retour.
-Or - 100
+or - 100
+#
+$
+Un naufragé apparait sur la plage de l'île. Il a l'air épuisé, mais il a un regard perçant. Que fais-tu ?
+1. Je l'aide, il pourrait avoir des informations utiles.
+2. Je le laisse à son sort, je ne veux pas prendre de risques.
+3. Je lui propose de partager un verre de rhum pour le remettre d'aplomb.
+#
+Je l'aide, il pourrait avoir des informations utiles. 
+pv +10 or +50 rhum +5
+#
+Je le laisse à son sort, je ne veux pas prendre de risques. 
+Effet : aucun
+#
+Je lui propose de partager un verre de rhum pour le remettre d'aplomb. 
+rhum -3 atk +5
+#
+$
+Sur l'île, tu trouves des pierres anciennes marquées de symboles étranges. Un explorateur t'explique que ces pierres sont magiques. Que fais-tu ?
+1. Je tente de déchiffrer les symboles pour découvrir leurs secrets.
+2. Je prends une pierre avec moi, peut-être qu’elle va m’être utile plus tard.
+3. Je laisse les pierres où elles sont, je ne veux pas m'attirer des ennuis.
+#
+Je tente de déchiffrer les symboles pour découvrir leurs secrets. 
+atk +10 rhum -3
+#
+Je prends une pierre avec moi, peut-être qu’elle va m’être utile plus tard. 
+or +50, pv -5
+#
+Je laisse les pierres où elles sont, je ne veux pas m'attirer des ennuis. 
+Effet : aucun
+#
