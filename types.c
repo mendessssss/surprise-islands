@@ -1,3 +1,4 @@
+
 typedef struct jacquie {
     int pv;
     int or;
@@ -6,18 +7,22 @@ typedef struct jacquie {
     int rhum;
 } t_jacquie;
 
-t_jacquie m = {100, 100, 5, 10, 100};
 
 typedef struct squelette {
     int pv;
     int attack;
 } t_squelette;
 
+typedef struct ennemis {
+    int nb;
+    int pv;
+    int attack;
+} t_ennemis;
+
 typedef struct ile {
     int or;
     struct squelette* Mechant1;
+    struct ennemis mad;
 } ile; 
 
 char* mvt;
-
-

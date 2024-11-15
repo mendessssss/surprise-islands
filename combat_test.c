@@ -1,81 +1,58 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
-typedef struct {
-    char *name;
-    int health;
-    int maxHealth;
-    int attackPower;
-} Character;
+#include "global.h"
 
-void attack(Character *attacker, Character *defender) {
-    int damage = rand() % attacker->attackPower + 1;
-    defender->health -= damage;
-    if (defender->health < 0) defender->health = 0;
-    printf("%s inflige %d dégâts à %s!\n", attacker->name, damage, defender->name);
+void bagarre (struct perso, struct rouge) {
+    int degat = rand() % perso.attaque + 1;
+    rouge.pv -= degat;
+    if (rouge.pv < 0) rouge.pv = 0;
+    printf (" %d de dégâts coup critique sur %s!\n", degat, rouge.nom);
 }
 
-void heal(Character *player) {
-    int healAmount = rand() % 20 + 10;
-    player->health += healAmount;
-    if (player->health > player->maxHealth) player->health = player->maxHealth;
-    printf("%s se soigne de %d points de vie!\n", player->name, healAmount);
-}
-
-void displayStatus(Character *player, Character *enemy) {
+void etat_status (char *perso, char *rouge) {
     printf("\n-- Statut --\n");
-    printf("%s: %d/%d PV\n", player->name, player->health, player->maxHealth);
-    printf("%s: %d/%d PV\n", enemy->name, enemy->health, enemy->maxHealth);
+    printf("%s: %d/%d PV\n", perso.nom, perso.pv);
+    printf("%s: %d/%d PV\n", rouge.nom, rouge.pv);
 }
 
 int main() {
     
     srand(time(NULL));
 
-    Character player = {"Joueur", 100, 100, 20};
-    Character enemy = {"Ennemi", 80, 80, 15};
+    printf ("%s VS %s prépares-toi pour le duel zebi !\n", perso.nom, rouge.nom);
 
-    printf("Début du combat entre %s et %s!\n", player.name, enemy.name);
+    while (perso.pv > 0 && rouge.pv > 0) {
+        etat_status(&perso, &rouge);
 
-    while (player.health > 0 && enemy.health > 0) {
-        displayStatus(&player, &enemy);
-
-        printf("\nActions disponibles:\n");
-        printf("1. Attaquer\n");
-        printf("2. Se soigner\n");
-        printf("3. Fuir\n");
-        printf("Choisissez une action: ");
+        printf ("1. Attaquer\n");
+        printf ("Choisis une arme : ");
         
-        int choice;
-        scanf("%d", &choice);
+        // int choix;
+        // scanf("%d", &choix);
 
-        switch (choice) {
-            case 1:
-                attack(&player, &enemy);
+        char choix [255]; memset (choix, 0, 255);
+        fgets (choix, 255, stdout);
+
+        switch (char choix) {
+            case 1 :
+                bagarre(&perso, &rouge);
                 break;
-            case 2:
-                heal(&player);
-                break;
-            case 3:
-                printf("%s décide de fuir le combat!\n", player.name);
-                return 0;
-            default:
-                printf("Choix invalide.\n");
-                continue;
+            
+            default :
+                printf("Saisie invalide.\n");
+            continue;
         }
 
-        // Tour de l'ennemi si l'ennemi est encore en vie
-        if (enemy.health > 0) {
-            attack(&enemy, &player);
+        // au tour du méchant 
+        if (rouge.pv > 0) {
+            bagarre(&rouge, &perso);
         }
     }
 
-    // Fin du combat
-    if (player.health <= 0) {
-        printf("\n%s a été vaincu...\n", player.name);
-    } else if (enemy.health <= 0) {
-        printf("\n%s a été vaincu! Vous avez gagné!\n", enemy.name);
+    // pronostique de qui s'est fait allumé + fin du duel
+    if (perso.pv <= 0) {
+        printf("\nAyyyy tié m0rt ...\n");
+    } else if (rouge.pv <= 0) {
+        printf("\n%s à terre, tu l'as bien niqué ce batard tié un crack !\n", rouge.nom);
     }
 
     return 0;

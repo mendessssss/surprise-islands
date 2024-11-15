@@ -1,19 +1,21 @@
 int struct_init () {
 
-    t_inventaire trucs;
+    inventaire trucs;
     trucs.or = 500;
     trucs.degats = 15;
     trucs.arme = "machette";
     trucs.rhum = 946;
     
-    t_jackie lui;
-    lui.pv = 600;
-    lui.attaque = 100;
+    jackie perso;
+    perso.nom = "Jackie"
+    perso.pv = 600;
+    perso.attaque = 100;
 
-    t_ennemis ennemis;
-    ennemis.nb = 17;
-    ennemis.pv = 100;
-    ennemis.attack = 40;
+    ennemis rouge;
+    rouge.nom = "pirate"
+    rouge.nb = 17;
+    rouge.pv = 100;
+    rouge.attack = 40;
 }
 
 int game_over (struct jackie *f) {
@@ -38,7 +40,7 @@ int déplacement (struct inventaire *m, int voyage, char * mvt) {
 
 void save(){
 FILE* fichier = fopen ("save", "w");
-fprintf(fichier, "pv: %d \nrhum : %d\nor : %d\n", boug.pv, trucs.rhum, trucs.or);
+fprintf(fichier, "pv: %d \nrhum : %d\nor : %d\n", perso.pv, trucs.rhum, trucs.or);
 if (fichier == NULL){
     printf("erreur ouverture fichier.");
 }
@@ -53,12 +55,12 @@ while (fgets(buf, sizeof(buf), fd) != NULL) {
         char * token = strtok (buf, ":");
         token = strtok (NULL, "\n");
         if  (token != NULL) {
-        boug.pv = atoi(token);
+        perso.pv = atoi(token);
     }
     }
 } 
 
-printf ("pv: %d \nrhum : %d\nor : %d\n", boug.pv, trucs.rhum, trucs.or);
+printf ("pv: %d \nrhum : %d\nor : %d\n", perso.pv, trucs.rhum, trucs.or);
 
 
 
