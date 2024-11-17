@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <dirent.h>
 #include <string.h>
+#include <dirent.h>
 #include <unistd.h>
 #include <time.h>
 
-#include "struct.c"
-#include "write_save.c"
+#include "types.c"
 #include "fonctions.c"
-#include "combat_test.c"
+#include "load_quete.c"
+#include "load_ile.c"
+#include "appliquer_effet.c"

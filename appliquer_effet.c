@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+#pragma once 
+#include "global.h"
 
 void appliquer_effet(char* effet) {
     // Appliquer l'effet basé sur la commande donnée (PO pour pièces d'or, PA pour points de vie)
