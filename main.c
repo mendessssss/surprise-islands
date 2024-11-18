@@ -1,34 +1,14 @@
 #include "global.h"
 
 int main () {
-
-    printf ("\n");
-    printf ("                   |    |     |\n");
-    printf ("                  )_)  )☠️)  )_)\n");
-    printf ("                 )___))___))___)\n");
-    printf ("                )____)____)_____)\n");
-    printf ("              _____|____|____|____\n");
-    printf ("    ________________________________\n");
-    printf (" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    printf ("\n");
-
-    printf ("Bienvenue dans l'aventure de %s, le pirate intrépide !\n", heros.nom);
     
-    srand (time(NULL));
-    
-    save ();
-    struct_init ();
-    printf ("\n");
-    status (heros, ennemi);
-    //printf ("Vous etes equipés d'une machette (ATK+10), vous disposez de %d points de vie, de %d pieces d'or et de %d bouteilles de rhum pour pouvoir naviguer.\n\n",heros.pv, m.or, m.rhum);
+    printf("\n                   |    |     |\n                  )_)  )☠️)  )_)\n                 )___))___))___)\n                )____)____)_____)\n              _____|____|____|____\n    ________________________________\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    // load_quete("Intro");
+    printf("\n");
+    read_save();
+    printf("Vous etes equipés d'une machette (ATK+10), vous disposez de %d points de vie, de %d pieces d'or et de %d bouteilles de rhum pour pouvoir naviguer.\n\n", m.pv, m.or, m.rhum);
     scanfiles ();
-
-
-
-    
-    combat (&heros, &ennemi);
-
-
+    victoire ();
+    game_over();
     return 0;
 }
-          
