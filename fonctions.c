@@ -110,51 +110,81 @@ void load_ile (char* fname) {
     fseek(file ,0, SEEK_END);
     int sizeFile = ftell(file);
     char text_content[sizeFile]; memset(text_content, 0, sizeFile);
-
+    printf("1\n");
     // Remettre le curseur du fichier au debut
     fseek(file ,0, SEEK_SET);
+    printf("2\n");
 
     if (NULL == file) {
         printf("Le fichier n'a pas pu s'ouvrir\n");
           exit(0);
+    printf("3\n");
     }
 
     // Get file content and nbQuetes
     // Ici on lit le fichier et si on tombe sur des $, cela compte les quetes
-    int nbQuetes = 1;
-    fread(text_content, sizeFile, sizeof(char), file);
+    int nbQuetes = 0;
+    fread(text_content, sizeof(char), sizeFile, file);
+    printf("4\n");
     int i = 0;
     while(text_content[i] != EOF){
         if(text_content[i] == '$'){
             nbQuetes++;
+    printf("5\n");
         }
         i++;
+    // printf("6\n");
     }
 
     // Fill the array of quests with each quest
     // double tableau, on transfert la quete dans un tableau
     char quetes[nbQuetes][BUF_SIZE*10];
+    char text_buf[sizeFile];
+    strcpy(text_buf,text_content);
+    printf("nbQuetes : %d\n",nbQuetes);
     memset(quetes, 0, BUF_SIZE*10*nbQuetes);
-    for (int i = 0; i < nbQuetes; i++)
-    {
-        char* quete;
-        if(i == 0){
-            quete = strtok(text_content,"$");
-        }else{
-            quete = strtok(NULL,"$");
-        }
-        strcpy(quetes[i], quete);
+    printf("7\n");
+    strcpy(quetes[0], strtok(text_buf,"$"));
+    i = 1;
+    char* token = NULL;
+    while ( (token = strtok(NULL,"$")) != NULL){ 
+        strcpy(quetes[i],token);
+        i++;   
     }
+    
+    // for (int i = 0; i < nbQuetes; i++)
+    // {
+    //     printf("8\n");
+    //     char* quete;
+    //     if(i == 0){
+    //         quete = strtok(text_buf,"$");
+    //         printf("9\n");
+    //     }else{
+    //         quete = strtok(NULL,"$");
+    //         printf("10\n");
+    //     }
+    //     printf("\ntext_content : @%p\n",text_content);
+    //     printf("\n&text_content : @%p\n",&text_content);
+    //     printf("\nquete : @%p\n",quete);
+    //     printf("\n&quete : @%p\n",&quete);
+    //     printf("\nquete : %c\n",quete[0]);
+    //     strcpy(quetes[i], quete);
+        
+    //     printf("11\n");
+    // }
 
     // For each quest of the quests array
     // On repere les # et pour chaque quete on a une reponse
     for (int i = 0; i < nbQuetes; i++) {
         // print text quest
+    printf("12\n");
         // and prints every answers
         char buf_quete[BUF_SIZE*10];
         strcpy(buf_quete, quetes[i]);
+    printf("13\n");
         strtok(buf_quete, "#");
         printf("%s\n", buf_quete); 
+    printf("14\n");
         
         
         // Seg fault ends
