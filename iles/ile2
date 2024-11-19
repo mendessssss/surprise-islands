@@ -5,14 +5,16 @@ Une créature géante bloque ton chemin, que fais-tu ?
 3. Je contourne la créature en cherchant une route alternative.
 #  
 Je l’affronte en combat, il n’y a pas de fuite pour un pirate.
-pv -50
+#
+PVJ -50 ATKJ 50
 #
 Je tente de la distraire en utilisant un piège ou un leurre.
-pv -70
+#
+PVJ -70
 #
 Je contourne la créature en cherchant une route alternative.
-Effet : aucun
 #
+Effet : aucun
 $
 Une étrange brume envahit l’île, que décides-tu ?
 1. Je m’aventure dans la brume, je pourrais y découvrir quelque chose de rare.
@@ -20,14 +22,16 @@ Une étrange brume envahit l’île, que décides-tu ?
 3. Je quitte immédiatement l’île, ce phénomène ne présage rien de bon.
 #
 Je m’aventure dans la brume, je pourrais y découvrir quelque chose de rare.
-or +20
+#
+POJ 20
 #
 Je m'abrite et attends qu'elle se dissipe.
-pv -10
+#
+PVJ -10
 #
 Je quitte immédiatement l’île, ce phénomène ne présage rien de bon.
-Effet : Quitte l'ile
 #
+QUIT
 $
 Tu arrives devant un vieux phare qui semble abandonné. La porte est entrouverte, et tu entends des bruits à l’intérieur. Que fais-tu ?
 1. J'entre prudemment, peut-être y a-t-il un trésor caché à l'intérieur.
@@ -35,11 +39,13 @@ Tu arrives devant un vieux phare qui semble abandonné. La porte est entrouverte
 3. J'essaie de faire tomber la porte pour voir ce qu’il y a dedans sans risquer d’y entrer.
 #
 J'entre prudemment, peut-être y a-t-il un trésor caché à l'intérieur. 
-rhum -5, or +100
+#
+RHUMJ -5
 #
 Je contourne le phare et je continue mon chemin. 
+#
 Effet : aucun
 #
 J'essaie de faire tomber la porte pour voir ce qu’il y a dedans sans risquer d’y entrer. 
-pv -10
 #
+PV -10

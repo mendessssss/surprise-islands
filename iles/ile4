@@ -1,30 +1,51 @@
-Ile4
+ile4
 Vous trouvez une bouteille contenant un vieux parchemin à moitié déchiré. Que faites-vous ?
 1. Ouvrir la bouteille pour lire le parchemin.
 2. Ignorer la bouteille et continuer votre chemin.
 3. Garder la bouteille pour plus tard.
 #
-Effet : Vous ouvrez la bouteille et découvrez une carte au trésor ! Vous gagnez 50 pièces d'or.
-or +50
+Vous ouvrez la bouteille et découvrez une carte au trésor ! Vous gagnez 50 pièces d'or.
 #
-Effet : Vous ignorez la bouteille et continuez votre chemin.
-Effet : Aucun
+POJ 50
 #
-Effet : Vous buvez le liquide dans la bouteille
-Effet : pv -10
+Vous ignorez la bouteille et continuez votre chemin.
 #
+RHUMJ -10
+#
+Vous buvez le liquide dans la bouteille
+#
+PVJ -10
 $
 Tu entends des bruits étranges dans la jungle. Comment réagis-tu ?
 1. Je pars explorer, cela pourrait être une créature mythique.
-2.Je me cache et attends de voir ce qui se passe.
-3.Je retourne au navire, il vaut mieux ne pas risquer ma vie.
+2. Je me cache et attends de voir ce qui se passe.
+3. Je retourne au navire, il vaut mieux ne pas risquer ma vie.
 #
-Je pars explorer, cela pourrait être une créature mythique.
-pv -10
+Il s'agit de King Kong super puissant dopé aux stéroides!!! Il vous attaque d'un coup !!!!
+#
+PVJ -1000
 #
 Je me cache et attends de voir ce qui se passe.
-- Effet : Aucun
+#
+RHUMJ -5
 #
 Je retourne au navire, il vaut mieux ne pas risquer ma vie.
-- Effet : Quitte l'ile
 #
+QUIT
+$
+Tu entends des bruits étranges dans la jungle. Comment réagis-tu ?
+1. Je pars explorer, cela pourrait être une créature mythique.
+2. Je me cache et attends de voir ce qui se passe.
+3. Je retourne au navire, il vaut mieux ne pas risquer ma vie.
+#
+Il s'agit de King Kong super puissant dopé aux stéroides!!! Il vous attaque d'un coup !!!!
+#
+PVJ -1000
+#
+Je me cache et attends de voir ce qui se passe.
+#
+RHUMJ -5
+#
+Je retourne au navire, il vaut mieux ne pas risquer ma vie.
+#
+QUIT

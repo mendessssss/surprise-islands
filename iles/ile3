@@ -5,12 +5,15 @@ Tu entres dans une grotte et tu te rends compte que c’est un piège ! Des roch
 3. Je me mets à l'abri et j'attends que tout se calme.
 #
 Je me précipite pour fuir avant que tout ne s'effondre.
-pv -10 atk -5
+#
+PO 10
 #
 Je cherche un moyen d'arrêter les rochers, peut-être que je pourrais les dévier. 
-pv -20, atk +15
+#
+PV 20, atk +15
 #
 Je me mets à l'abri et j'attends que tout se calme. 
+#
 rhum -20
 #
 $
@@ -20,9 +23,11 @@ Tu rencontres un autre pirate sur l'île, armé jusqu'aux dents. Il te défie à
 3. Je lui propose un pari de rhum, qui perd doit donner son butin.
 #
 Je relève le défi et j'affronte ce pirate.
+#
 pv -15
 #
 Je lui propose de faire une alliance, on pourrait s'entraider pour trouver les trésors. 
+#
 Or -100
 #
 Je lui propose un pari de rhum, qui perd doit donner son butin. 

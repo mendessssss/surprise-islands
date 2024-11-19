@@ -1,32 +1,15 @@
 #define BUF_SIZE 255
 
 
-typedef struct jacquie {
+typedef struct perso {
     int pv;
     int or;
-    int attack;
+    int atk;
     int armes;
     int rhum;
-} t_jacquie;
+} t_perso;
 
-// Jackie m : PV : 100, Or : 100, Attack : 5, Armes : 10, Rhum : 100
-t_jacquie m = {100, 100, 5, 10, 100};
-
-typedef struct squelette {
-    int pv;
-    int attack;
-} t_squelette;
-
-typedef struct ennemis {
-    int nb;
-    int pv;
-    int attack;
-} t_ennemis;
-
-typedef struct ile {
-    int or;
-    struct squelette* Mechant1;
-    struct ennemis mad;
-} ile; 
+// Jack : PV : 100, Or : 100, Attack : 5, Armes : 10, Rhum : 100
+t_perso jack = {100, 100, 5, 10, 100};
 
 char* mvt;

@@ -1,0 +1,18 @@
+ile6
+Vous trouvez une bouteille contenant un vieux parchemin à moitié déchiré. Que faites-vous ?
+1. Ouvrir la bouteille pour lire le parchemin.
+2. Ignorer la bouteille et continuer votre chemin.
+3. Garder la bouteille pour plus tard.
+#
+Vous ouvrez la bouteille et découvrez une carte au trésor ! Vous gagnez 50 pièces d'or.
+#
+POJ 50
+#
+Vous ignorez la bouteille et continuez votre chemin.
+#
+RHUMJ -10
+#
+Vous buvez le liquide dans la bouteille
+#
+PVJ -10
+$

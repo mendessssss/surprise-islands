@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "string.h": "c"
+        "toto": "css",
+        "string.h": "c",
+        "global.h": "c"
     }
 }
